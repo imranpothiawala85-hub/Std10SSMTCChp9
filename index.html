@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BOMBAY COACHING CLASSES | Chp 9 Matching Board Test</title>
+  <!-- Plus Jakarta Sans Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    @keyframes glitter {
+      0%, 100% { opacity: 0.2; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.1); filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.9)); }
+    }
+    .glitter-star {
+      animation: glitter 1.4s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
+
+  <!-- ================= TOP HEADER (Height <= 48px) ================= -->
+  <header class="sticky top-0 z-40 bg-slate-900 border-b border-slate-800 text-white shadow-md">
+    <div class="max-w-7xl mx-auto px-2.5 sm:px-4 h-12 flex items-center justify-between gap-2">
+      
+      <!-- Brand & Stacked Address -->
+      <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+        <div class="bg-gradient-to-r from-amber-500/20 via-yellow-500/15 to-amber-500/20 border border-amber-400/40 rounded px-2 py-0.5 flex items-center gap-1.5 shadow-sm">
+          <svg class="w-3.5 h-3.5 text-amber-400 fill-current shrink-0" viewBox="0 0 24 24">
+            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+          </svg>
+          <span class="font-extrabold tracking-wider text-[11px] sm:text-xs text-amber-300 uppercase whitespace-nowrap">BOMBAY COACHING CLASSES</span>
+        </div>
+
+        <!-- Stacked Location Badge (Always Visible) -->
+        <div class="bg-slate-800/90 border border-slate-700/80 rounded px-1.5 py-0.5 flex flex-col items-center justify-center text-center leading-tight shrink-0">
+          <span class="text-amber-200/90 text-[8.5px] font-bold leading-none">Adajan Patiya</span>
+          <span class="text-slate-300 text-[8px] font-semibold leading-none tracking-wider">Surat</span>
+        </div>
+      </div>
+
+      <!-- Educator & Communication Quick Links -->
+      <div class="flex items-center gap-1.5 shrink-0">
+        <div class="bg-slate-800 text-slate-200 border border-slate-700 rounded-full px-2 py-0.5 text-[10px] sm:text-[11px] font-semibold hidden lg:inline-flex items-center gap-1">
+          <span>👨‍🏫 Imran Sir Pothiawala</span>
+        </div>
+        <a href="tel:9819484931" class="bg-indigo-600/30 hover:bg-indigo-600/50 text-indigo-300 border border-indigo-500/40 rounded-full px-2 py-0.5 text-[10px] sm:text-[11px] font-semibold inline-flex items-center gap-1 transition">
+          <span>📞</span>
+          <span class="hidden sm:inline">9819484931</span>
+        </a>
+        <a href="https://wa.me/919819484931" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white rounded-full px-2 sm:px-2.5 py-0.5 text-[10px] sm:text-[11px] font-bold shadow-sm transition inline-flex items-center gap-1">
+          <span>💬</span>
+          <span class="hidden sm:inline">WhatsApp</span>
+        </a>
+      </div>
+
+      <!-- Sound Toggle & Current Score Strip -->
+      <div class="flex items-center gap-2 shrink-0">
+        <button id="soundToggleBtn" onclick="toggleSound()" class="p-1 rounded bg-slate-800 border border-slate-700 text-slate-300 hover:text-amber-300 transition text-xs" title="Toggle Sound FX">
+          🔊
+        </button>
+        <div class="bg-slate-800/80 border border-slate-700 px-2 py-0.5 rounded text-[10px] sm:text-xs font-bold text-slate-300 flex items-center gap-1">
+          <span class="text-slate-400">Score:</span>
+          <span id="headerScoreCounter" class="text-emerald-400 font-extrabold">0</span>
+          <span class="text-slate-500">/</span>
+          <span class="text-slate-400">70</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ROW 2: Slim Set Selector Pill Strip -->
+    <div class="bg-slate-950/70 border-t border-slate-800/80 px-2 py-1 flex items-center justify-between gap-2 overflow-x-auto custom-scrollbar">
+      <div id="setTabContainer" class="flex items-center gap-1 shrink-0">
+        <!-- Rendered by JS: Set 1, Set 2 ... Set 14 -->
+      </div>
+      <div class="shrink-0 text-[10px] font-bold text-amber-400 px-2 flex items-center gap-1">
+        <span id="completedSetsCount">0/14</span> Sets Done
+      </div>
+    </div>
+    <!-- 3px Micro Progress Bar -->
+    <div class="w-full bg-slate-800 h-[3px]">
+      <div id="globalProgressBar" class="bg-gradient-to-r from-amber-400 to-emerald-400 h-[3px] transition-all duration-300" style="width: 0%"></div>
+    </div>
+  </header>
+
+  <!-- ================= MAIN TEST CONTAINER ================= -->
+  <main class="max-w-6xl w-full mx-auto p-2.5 sm:p-4 flex-1 flex flex-col justify-between">
+    
+    <div>
+      <!-- Exam Notice Banner -->
+      <div class="bg-white rounded-lg border border-slate-200 px-3 py-2 mb-2 flex items-center justify-between shadow-sm">
+        <div class="flex items-center gap-2">
+          <span class="inline-block w-2 h-2 rounded-full bg-indigo-500 animate-ping"></span>
+          <h2 class="font-bold text-slate-800 text-xs sm:text-sm">Match the pairs correctly</h2>
+        </div>
+        <div class="bg-amber-100 text-amber-900 border border-amber-300 text-[10px] sm:text-[11px] font-bold px-2 py-0.5 rounded-md flex items-center gap-1">
+          <span>⭐</span>
+          <span>Carries 5 marks in board exams [1 mark each]</span>
+        </div>
+      </div>
+
+      <!-- Active Set Strict Heading -->
+      <div class="bg-slate-900 text-white rounded-lg px-3.5 py-1.5 mb-2.5 flex items-center justify-between shadow-sm">
+        <h1 id="activeSetTitle" class="font-extrabold text-xs sm:text-sm tracking-tight text-amber-300">
+          Set 1 : Chp 9 Forests and Wildlife Resources
+        </h1>
+        <div id="helperTapPrompt" class="text-[11px] text-slate-300 font-medium italic hidden sm:block">
+          Tap a question in Column A, then tap its matching answer in Column B.
+        </div>
+      </div>
+
+      <!-- Two Matching Columns Layout (Column A vs Column B) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-3">
+        
+        <!-- Column A: Questions -->
+        <div class="flex flex-col gap-2">
+          <div class="flex items-center justify-between px-1">
+            <span class="font-bold text-xs uppercase tracking-wider text-indigo-700">Column 'A' (Questions)</span>
+            <span class="text-[10px] text-slate-500 font-semibold">Tap to select pair</span>
+          </div>
+          <div id="columnAContainer" class="flex flex-col gap-2">
+            <!-- Questions cards injected dynamically -->
+          </div>
+        </div>
+
+        <!-- Column B: Options -->
+        <div class="flex flex-col gap-2">
+          <div class="flex items-center justify-between px-1">
+            <span class="font-bold text-xs uppercase tracking-wider text-slate-600">Column 'B' (Options)</span>
+            <span class="text-[10px] text-slate-500 font-semibold">Select right answer</span>
+          </div>
+          <div id="columnBContainer" class="flex flex-col gap-2">
+            <!-- Option cards injected dynamically -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bottom Controls & Set Navigation -->
+    <div class="mt-4 pt-3 border-t border-slate-200">
+      
+      <!-- Primary Action Buttons Row -->
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+        <div class="flex items-center gap-2">
+          <button onclick="checkCurrentSet()" class="bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white font-bold text-xs sm:text-sm px-3.5 py-2 rounded-lg shadow-sm transition flex items-center gap-1.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+            <span>Check This Set</span>
+          </button>
+
+          <button onclick="resetCurrentSet()" class="bg-white hover:bg-slate-100 active:scale-95 text-slate-700 border border-slate-300 font-bold text-xs sm:text-sm px-3 py-2 rounded-lg shadow-sm transition flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+            <span>Reset Set</span>
+          </button>
+        </div>
+
+        <button onclick="submitTestAndOpenScorecard()" class="bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white font-bold text-xs sm:text-sm px-4 py-2 rounded-lg shadow-md transition flex items-center gap-1.5 ml-auto">
+          <span>Submit Test & View Scorecard</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+      </div>
+
+      <!-- Dynamic Bottom Navigation Bar -->
+      <div class="flex items-center justify-between gap-2">
+        <button id="prevSetBtn" onclick="navigateSet(-1)" class="bg-slate-800 text-white hover:bg-slate-700 disabled:opacity-40 disabled:cursor-not-allowed font-bold text-xs sm:text-sm px-3.5 py-1.5 rounded-md transition flex items-center gap-1">
+          <span>←</span>
+          <span id="prevSetLabel">Previous Set</span>
+        </button>
+
+        <div class="text-[11px] font-bold text-slate-600">
+          Showing Set <span id="currentSetNumIndicator" class="text-indigo-600 font-extrabold">1</span> of 14
+        </div>
+
+        <button id="nextSetBtn" onclick="navigateSet(1)" class="bg-slate-800 text-white hover:bg-slate-700 disabled:opacity-40 disabled:cursor-not-allowed font-bold text-xs sm:text-sm px-3.5 py-1.5 rounded-md transition flex items-center gap-1">
+          <span id="nextSetLabel">Next Set 2</span>
+          <span>→</span>
+        </button>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ================= COMPREHENSIVE SCORECARD MODAL ================= -->
+  <div id="scorecardModal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 p-3 sm:p-4 hidden items-center justify-center overflow-y-auto">
+    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[92vh] flex flex-col shadow-2xl border border-slate-200 overflow-hidden relative animate-in fade-in zoom-in-95 duration-200">
+      
+      <!-- Confetti Canvas -->
+      <canvas id="confettiCanvas" class="absolute inset-0 pointer-events-none z-10 w-full h-full"></canvas>
+
+      <!-- Modal Header -->
+      <div class="bg-slate-900 text-white p-3.5 sm:p-4 text-center relative shrink-0">
+        <button onclick="closeScorecardModal()" class="absolute right-3 top-3 text-slate-400 hover:text-white bg-slate-800 p-1.5 rounded-full text-xs">
+          ✕
+        </button>
+        <div class="flex items-center justify-center gap-1.5 text-amber-400 text-xs font-bold uppercase tracking-widest mb-0.5">
+          <span>👑 BOMBAY COACHING CLASSES 👑</span>
+        </div>
+        <p class="text-[10px] text-slate-300">Adajan Patiya, Surat | Guided by Imran Sir Pothiawala (9819484931)</p>
+        <h3 class="text-base sm:text-lg font-black text-white mt-1">Official Board Matching Examination Scorecard</h3>
+      </div>
+
+      <!-- Modal Body (Scrollable Breakdown) -->
+      <div class="p-4 sm:p-5 overflow-y-auto custom-scrollbar flex-1 space-y-4">
+
+        <!-- Special Banner for 100% or >=80% or <80% -->
+        <div id="performanceBadgeContainer" class="text-center p-3 rounded-xl border">
+          <!-- Dynamic status container -->
+        </div>
+
+        <!-- Metrics Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+          <div class="bg-indigo-50 border border-indigo-200 rounded-lg p-2.5 text-center">
+            <span class="text-[10px] font-bold text-indigo-600 uppercase">Total Score</span>
+            <div id="modalScoreDisplay" class="text-xl sm:text-2xl font-black text-indigo-900 mt-0.5">0 / 70</div>
+          </div>
+          <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-2.5 text-center">
+            <span class="text-[10px] font-bold text-emerald-600 uppercase">Correct Pairs</span>
+            <div id="modalCorrectCount" class="text-xl sm:text-2xl font-black text-emerald-800 mt-0.5">0</div>
+          </div>
+          <div class="bg-rose-50 border border-rose-200 rounded-lg p-2.5 text-center">
+            <span class="text-[10px] font-bold text-rose-600 uppercase">Incorrect Pairs</span>
+            <div id="modalIncorrectCount" class="text-xl sm:text-2xl font-black text-rose-800 mt-0.5">0</div>
+          </div>
+          <div class="bg-amber-50 border border-amber-200 rounded-lg p-2.5 text-center">
+            <span class="text-[10px] font-bold text-amber-700 uppercase">Unattempted</span>
+            <div id="modalUnattemptedCount" class="text-xl sm:text-2xl font-black text-amber-900 mt-0.5">0</div>
+          </div>
+        </div>
+
+        <!-- Detailed Question-by-Question Sets Breakdown -->
+        <div class="border border-slate-200 rounded-xl overflow-hidden">
+          <div class="bg-slate-100 px-3 py-2 border-b border-slate-200 flex items-center justify-between">
+            <span class="font-bold text-xs uppercase tracking-wide text-slate-700">Comprehensive Solutions & Answers Review</span>
+            <span class="text-[10px] text-slate-500 font-semibold">All 14 Sets (70 Questions)</span>
+          </div>
+          <div id="modalSetsBreakdownContainer" class="divide-y divide-slate-200 max-h-72 overflow-y-auto custom-scrollbar bg-white">
+            <!-- Injected by JS -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="bg-slate-50 border-t border-slate-200 p-3 sm:p-4 flex flex-wrap items-center justify-between gap-2 shrink-0">
+        <button onclick="retakeFullTest()" class="bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 font-bold text-xs px-3.5 py-2 rounded-lg transition flex items-center gap-1.5 shadow-sm">
+          <span>🔄</span> Retake Full Test
+        </button>
+
+        <div class="flex items-center gap-2">
+          <button id="whatsappShareBtn" onclick="shareOnWhatsApp()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs px-3.5 py-2 rounded-lg transition flex items-center gap-1.5 shadow-sm">
+            <span>💬 Share on WhatsApp</span>
+          </button>
+          <button onclick="closeScorecardModal()" class="bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs px-3.5 py-2 rounded-lg transition">
+            Close
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= JAVASCRIPT ENGINE ================= -->
+  <script>
+    /* -------------------------------------------------------------
+       1. COMPLETE DATA REPOSITORY: 14 SETS (NAVNEET 21 M.L.Q.)
+       Standard 10 Social Science: Chapter 9 Forests & Wildlife Resources
+    -------------------------------------------------------------- */
+    const EXAM_DATA = [
+      {
+        setId: 1,
+        title: "Set 1 : Chp 9 Forests and Wildlife Resources",
+        questions: [
+          { id: 1, text: "Project Vulture (March 24)", ans: "B" },
+          { id: 2, text: "Project snow leopard", ans: "D" },
+          { id: 3, text: "Establishing a wildlife sanctuary", ans: "F" },
+          { id: 4, text: "More protected than a sanctuary", ans: "E" },
+          { id: 5, text: "Formed according to international norms", ans: "A" }
+        ],
+        options: [
+          { key: "A", text: "Bio-reserve zones" },
+          { key: "B", text: "2004 AD" },
+          { key: "C", text: "1992 AD" },
+          { key: "D", text: "2000 AD" },
+          { key: "E", text: "National Park" },
+          { key: "F", text: "For the protection of some specific species" }
+        ]
+      },
+      {
+        setId: 2,
+        title: "Set 2 : Chp 9 Forests and Wildlife Resources",
+        questions: [
+          { id: 1, text: "Private forests", ans: "E" },
+          { id: 2, text: "Deforestation", ans: "A" },
+          { id: 3, text: "In terms of bio-diversity", ans: "F" },
+          { id: 4, text: "A fresh water species", ans: "C" },
+          { id: 5, text: "Wild animal extinct from forests of India", ans: "D" }
+        ],
+        options: [
+          { key: "A", text: "Increasing Green House effect" },
+          { key: "B", text: "Rajnag" },
+          { key: "C", text: "The Ganges dolphin" },
+          { key: "D", text: "Cheetah" },
+          { key: "E", text: "Odisha, Meghalaya, Punjab, etc." },
+          { key: "F", text: "India is at the 12th place in the world" }
+        ]
+      },
+      {
+        setId: 3,
+        title: "Set 3 : Chp 9 Forests and Wildlife Resources",
+        questions: [
+          { id: 1, text: "Wild animal that can be seen only in a zoo", ans: "E" },
+          { id: 2, text: "Most rhinoceroses", ans: "F" },
+          { id: 3, text: "Nature's cleaner (March 24)", ans: "A" },
+          { id: 4, text: "Total species of vultures in India", ans: "C" },
+          { id: 5, text: "Eturnagaram", ans: "D" }
+        ],
+        options: [
+          { key: "A", text: "Vulture" },
+          { key: "B", text: "12" },
+          { key: "C", text: "9" },
+          { key: "D", text: "Sanctuary" },
+          { key: "E", text: "Cheetah" },
+          { key: "F", text: "Assam state" }
+        ]
+      },
+      {
+        setId: 4,
+        title: "Set 4 : Chp 9 Forests and Wildlife Resources",
+        questions: [
+          { id: 1, text: "Animal of the cat family", ans: "C" },
+          { id: 2, text: "Sanctuary", ans: "D" },
+          { id: 3, text: "National Park (Assam)", ans: "E" },
+          { id: 4, text: "Dugang", ans: "A" },
+          { id: 5, text: "Number of National Parks in India", ans: "F" }
+        ],
+        options: [
+          { key: "A", text: "Main food - sea grass and vegetation" },
+          { key: "B", text: "Henotaro" },
+          { key: "C", text: "Leopard" },
+          { key: "D", text: "Chandraprabha" },
+          { key: "E", text: "Kaziranga" },
+          { key: "F", text: "103" }
+        ]
+      },
+      {
+        setId: 5,
+        title: "Set 5 : Chp 9 Forests and Wildlife Resources",
+        questions: [
+          { id: 1, text: "Dachigam", ans: "E" },
+          { id: 2, text: "Nilgiri", ans: "D" },
+          { id: 3, text: "Bio-reserve zone", ans: "F" },
+          { id: 4, text: "Henotaro", ans: "A" },
+          { id: 5, text: "Dugang", ans: "C" }
+        ],
+        options: [
+          { key: "A", text: "Narayan Sarovar Sanctuary" },
+          { key: "B", text: "Sanctuary" },
+          { key: "C", text: "Gulf of Kachchh" },
+          { key: "D", text: "Bio-reserve zone" },
+          { key: "E", text: "National Park" },
+          { key: "F", text: "Rann of Kachchh" }
+        ]
+      },
+      {
+        setId: 6,
+        title: "Set 6 : Chp 9 Forests and Wildlife Resources",
+        questions: [
+          { id: 1, text: "Reserved forests", ans: "C" },
+          { id: 2, text: "Project Tiger started", ans: "A" },
+          { id: 3, text: "Communal forest", ans: "E" },
+          { id: 4, text: "Private forest", ans: "D" },
+          { id: 5, text: "Wild animal extinct from forests of Gujarat", ans: "F" }
+        ],
+        options: [
+          { key: "A", text: "1971 AD" },
+          { key: "B", text: "Individual ownership" },
+          { key: "C", text: "Controlled by the Government" },
+          { key: "D", text: "Individual" },
+          { key: "E", text: "Controlled by local self-government" },
+          { key: "F", text: "Tiger" }
+        ]
+      },
+      {
+        setId: 7,
+        title: "Set 7 : Chp 9 Forests and Wildlife Resources",
+        questions: [
+          { id: 1, text: "Snow leopard", ans: "D" },
+          { id: 2, text: "Red panda", ans: "B" },
+          { id: 3, text: "Keoladev National Park", ans: "E" },
+          { id: 4, text: "Nal Sarovar", ans: "A" },
+          { id: 5, text: "Animal-bird species in the world", ans: "F" }
+        ],
+        options: [
+          { key: "A", text: "Gujarat" },
+          { key: "B", text: "Cold forests" },
+          { key: "C", text: "Uttar Pradesh" },
+          { key: "D", text: "On the top of the Himalayas" },
+          { key: "E", text: "Rajasthan" },
+          { key: "F", text: "15 Lakh" }
+        ]
+      },
+      {
+        setId: 8,
+        title: "Set 8 : Chp 9 Forests and Wildlife Resources",
+        questions: [
+          { id: 1, text: "Tiger Project", ans: "B" },
+          { id: 2, text: "Elephant Project", ans: "A" },
+          { id: 3, text: "One-horned Indian Rhino", ans: "D" },
+          { id: 4, text: "Strategy of 2020", ans: "E" },
+          { id: 5, text: "Number of sanctuaries in India", ans: "F" }
+        ],
+        options: [
+          { key: "A", text: "26 Protected regions" },
+          { key: "B", text: "44 regions of the country" },
+          { key: "C", text: "Rhino project" },
+          { key: "D", text: "Assam and Sundarbans" },
+          { key: "E", text: "Rhino vision" },
+          { key: "F", text: "531" }
+        ]
+      },
+      {
+        setId: 9,
+        title: "Set 9 : Chp 9 Forests and Wildlife Resources",
+        questions: [
+          { id: 1, text: "Number of Bio-reserve areas in India", ans: "D" },
+          { id: 2, text: "Number of Bio-reserve areas in Gujarat", ans: "F" },
+          { id: 3, text: "Number of National Parks in Gujarat", ans: "B" },
+          { id: 4, text: "Number of Sanctuaries in Gujarat", ans: "A" },
+          { id: 5, text: "Dachigam", ans: "C" }
+        ],
+        options: [
+          { key: "A", text: "23" },
+          { key: "B", text: "4" },
+          { key: "C", text: "Jammu-Kashmir" },
+          { key: "D", text: "18" },
+          { key: "E", text: "Madhya Pradesh" },
+          { key: "F", text: "1" }
+        ]
+      },
+      {
+        setId: 10,
+        title: "Set 10 : Chp 9 Forests and Wildlife Resources",
+        questions: [
+          { id: 1, text: "Velavadar", ans: "B" },
+          { id: 2, text: "Periyar", ans: "E" },
+          { id: 3, text: "Ranthambhor", ans: "F" },
+          { id: 4, text: "Sundarbans", ans: "C" },
+          { id: 5, text: "Karnala", ans: "A" }
+        ],
+        options: [
+          { key: "A", text: "Maharashtra" },
+          { key: "B", text: "Gujarat" },
+          { key: "C", text: "West Bengal" },
+          { key: "D", text: "Madhya Pradesh" },
+          { key: "E", text: "Kerala" },
+          { key: "F", text: "Rajasthan" }
+        ]
+      },
+      {
+        setId: 11,
+        title: "Set 11 : Chp 9 Forests and Wildlife Resources",
+        questions: [
+          { id: 1, text: "Gir", ans: "C" },
+          { id: 2, text: "Sariska", ans: "E" },
+          { id: 3, text: "Kanha", ans: "A" },
+          { id: 4, text: "Corbett", ans: "F" },
+          { id: 5, text: "Chandraprabha", ans: "B" }
+        ],
+        options: [
+          { key: "A", text: "Madhya Pradesh" },
+          { key: "B", text: "Uttar Pradesh" },
+          { key: "C", text: "Gujarat" },
+          { key: "D", text: "Andhra Pradesh" },
+          { key: "E", text: "Rajasthan" },
+          { key: "F", text: "Uttarakhand" }
+        ]
+      },
+      {
+        setId: 12,
+        title: "Set 12 : Chp 9 Forests and Wildlife Resources",
+        questions: [
+          { id: 1, text: "Bandipur", ans: "D" },
+          { id: 2, text: "Project Elephant", ans: "E" },
+          { id: 3, text: "Marine National Park", ans: "F" },
+          { id: 4, text: "Virgin vegetation", ans: "C" },
+          { id: 5, text: "Destruction of forests", ans: "B" }
+        ],
+        options: [
+          { key: "A", text: "Administrative institution" },
+          { key: "B", text: "Deforestation" },
+          { key: "C", text: "Himalaya and Sundarbans" },
+          { key: "D", text: "Karnataka" },
+          { key: "E", text: "1992 AD" },
+          { key: "F", text: "Gujarat" }
+        ]
+      },
+      {
+        setId: 13,
+        title: "Set 13 : Chp 9 Forests and Wildlife Resources",
+        questions: [
+          { id: 1, text: "Mudumalai", ans: "C" },
+          { id: 2, text: "Eturnagaram", ans: "E" },
+          { id: 3, text: "Rajnag", ans: "B" },
+          { id: 4, text: "One-horned Indian Rhino", ans: "F" },
+          { id: 5, text: "Henotaro", ans: "D" }
+        ],
+        options: [
+          { key: "A", text: "Nilgiri" },
+          { key: "B", text: "Dense rain-forests of the south" },
+          { key: "C", text: "Tamil Nadu" },
+          { key: "D", text: "Forests of Kachchh district of Gujarat" },
+          { key: "E", text: "Telangana" },
+          { key: "F", text: "Grass-eating animal" }
+        ]
+      },
+      {
+        setId: 14,
+        title: "Set 14 : Chp 9 Forests and Wildlife Resources",
+        questions: [
+          { id: 1, text: "Protected forests", ans: "B" },
+          { id: 2, text: "Unclassified forests", ans: "A" },
+          { id: 3, text: "Communal forests", ans: "D" },
+          { id: 4, text: "Private forests", ans: "E" },
+          { id: 5, text: "Result of human progress", ans: "C" }
+        ],
+        options: [
+          { key: "A", text: "No restriction on tree felling or grazing animals" },
+          { key: "B", text: "Maintained by the government" },
+          { key: "C", text: "Deforestation" },
+          { key: "D", text: "Municipality, Municipal Corporation" },
+          { key: "E", text: "Himachal Pradesh" },
+          { key: "F", text: "Under the direct control of the Government" }
+        ]
+      }
+    ];
+
+    /* -------------------------------------------------------------
+       2. APPLICATION STATE MANAGEMENT
+    -------------------------------------------------------------- */
+    let currentSetIndex = 0; // 0 to 13
+    let selectedQuestionId = null; // currently selected question id (1 to 5)
+    // Structure: userAnswers[setIndex] = { 1: "B", 2: "D", ... }
+    const userAnswers = Array.from({ length: EXAM_DATA.length }, () => ({}));
+    // Structure: setEvaluated[setIndex] = boolean
+    const setEvaluated = Array.from({ length: EXAM_DATA.length }, () => false);
+    let soundEnabled = true;
+
+    /* -------------------------------------------------------------
+       3. SYNTHESIZED SOUND EFFECTS ENGINE (WEB AUDIO API)
+    -------------------------------------------------------------- */
+    let audioCtx = null;
+
+    function getAudioContext() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    function toggleSound() {
+      soundEnabled = !soundEnabled;
+      const btn = document.getElementById('soundToggleBtn');
+      btn.textContent = soundEnabled ? '🔊' : '🔇';
+      btn.title = soundEnabled ? 'Sound is ON' : 'Sound is MUTED';
+    }
+
+    function playTone(freq, duration, type = 'sine', gainVal = 0.12) {
+      if (!soundEnabled) return;
+      try {
+        const ctx = getAudioContext();
+        const osc = ctx.createOscillator();
+        const gainNode = ctx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, ctx.currentTime);
+        gainNode.gain.setValueAtTime(gainVal, ctx.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
+        osc.connect(gainNode);
+        gainNode.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + duration);
+      } catch (e) {
+        console.warn("Audio Context unavailable:", e);
+      }
+    }
+
+    function soundTap() {
+      playTone(400, 0.05, 'sine', 0.08);
+    }
+
+    function soundMatch() {
+      if (!soundEnabled) return;
+      playTone(523.25, 0.06, 'sine', 0.1);
+      setTimeout(() => playTone(659.25, 0.08, 'sine', 0.1), 50);
+    }
+
+    function soundCorrect() {
+      if (!soundEnabled) return;
+      // C5 -> E5 -> G5 Major Arpeggio
+      playTone(523.25, 0.07, 'triangle', 0.15);
+      setTimeout(() => playTone(659.25, 0.07, 'triangle', 0.15), 70);
+      setTimeout(() => playTone(783.99, 0.14, 'triangle', 0.15), 140);
+    }
+
+    function soundIncorrect() {
+      // Low buzz 180Hz sawtooth
+      playTone(180, 0.18, 'sawtooth', 0.15);
+    }
+
+    function soundFanfare() {
+      if (!soundEnabled) return;
+      const notes = [523.25, 659.25, 783.99, 1046.50];
+      notes.forEach((freq, idx) => {
+        setTimeout(() => playTone(freq, 0.16, 'triangle', 0.15), idx * 100);
+      });
+    }
+
+    /* -------------------------------------------------------------
+       4. INITIALIZATION & RENDERING ENGINE
+    -------------------------------------------------------------- */
+    function initApp() {
+      renderSetPillTabs();
+      renderCurrentSet();
+      updateGlobalMetrics();
+    }
+
+    function renderSetPillTabs() {
+      const container = document.getElementById('setTabContainer');
+      container.innerHTML = '';
+      EXAM_DATA.forEach((s, idx) => {
+        const btn = document.createElement('button');
+        btn.id = `set-tab-${idx}`;
+        btn.className = getSetTabClasses(idx);
+        btn.textContent = `Set ${s.setId}`;
+        btn.onclick = () => {
+          soundTap();
+          switchSet(idx);
+        };
+        container.appendChild(btn);
+      });
+    }
+
+    function getSetTabClasses(idx) {
+      const isActive = idx === currentSetIndex;
+      const isDone = setEvaluated[idx];
+      let cls = "text-[11px] font-bold px-2 py-0.5 rounded transition shrink-0 ";
+      if (isActive) {
+        cls += "bg-indigo-600 text-white shadow-sm ring-1 ring-indigo-400";
+      } else if (isDone) {
+        cls += "bg-emerald-950/80 text-emerald-300 border border-emerald-600/40 hover:bg-emerald-900";
+      } else {
+        cls += "bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white";
+      }
+      return cls;
+    }
+
+    function switchSet(newIndex) {
+      if (newIndex < 0 || newIndex >= EXAM_DATA.length) return;
+      currentSetIndex = newIndex;
+      selectedQuestionId = null;
+      renderSetPillTabs();
+      renderCurrentSet();
+      // Scroll active pill into view smoothly
+      const activeTab = document.getElementById(`set-tab-${currentSetIndex}`);
+      if (activeTab) {
+        activeTab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      }
+    }
+
+    function renderCurrentSet() {
+      const currentSet = EXAM_DATA[currentSetIndex];
+      const isEval = setEvaluated[currentSetIndex];
+      const setMatches = userAnswers[currentSetIndex];
+
+      // Update Active Set Banner & Bottom nav indicators
+      document.getElementById('activeSetTitle').textContent = currentSet.title;
+      document.getElementById('currentSetNumIndicator').textContent = currentSet.setId;
+      
+      const prevBtn = document.getElementById('prevSetBtn');
+      const nextBtn = document.getElementById('nextSetBtn');
+      const prevLabel = document.getElementById('prevSetLabel');
+      const nextLabel = document.getElementById('nextSetLabel');
+
+      if (currentSetIndex === 0) {
+        prevBtn.disabled = true;
+        prevLabel.textContent = "Previous Set";
+      } else {
+        prevBtn.disabled = false;
+        prevLabel.textContent = `Previous Set ${currentSet.setId - 1}`;
+      }
+
+      if (currentSetIndex === EXAM_DATA.length - 1) {
+        nextBtn.disabled = true;
+        nextLabel.textContent = "Last Set";
+      } else {
+        nextBtn.disabled = false;
+        nextLabel.textContent = `Next Set ${currentSet.setId + 1}`;
+      }
+
+      // Render Column A Questions
+      const colA = document.getElementById('columnAContainer');
+      colA.innerHTML = '';
+
+      currentSet.questions.forEach((q) => {
+        const isSelected = selectedQuestionId === q.id;
+        const matchedKey = setMatches[q.id];
+        const matchedOption = currentSet.options.find(o => o.key === matchedKey);
+
+        const card = document.createElement('div');
+        card.id = `q-card-${q.id}`;
+        
+        // Base classes
+        let cardClass = "p-2.5 sm:p-3 rounded-xl border text-xs sm:text-sm font-medium transition cursor-pointer flex flex-col gap-1.5 ";
+        
+        if (isEval) {
+          const isCorrect = matchedKey === q.ans;
+          if (isCorrect) {
+            cardClass += "bg-emerald-50 border-emerald-500 text-emerald-950 ring-1 ring-emerald-500";
+          } else {
+            cardClass += "bg-rose-50 border-rose-500 text-rose-950 ring-1 ring-rose-500";
+          }
+        } else if (isSelected) {
+          cardClass += "ring-2 ring-indigo-500 border-indigo-500 bg-indigo-50/70 shadow-md animate-pulse";
+        } else if (matchedKey) {
+          cardClass += "bg-slate-50 border-slate-300 text-slate-800 shadow-sm";
+        } else {
+          cardClass += "bg-white border-slate-200 text-slate-800 hover:border-indigo-300 shadow-sm";
+        }
+        card.className = cardClass;
+
+        // Click handler to select question
+        card.onclick = (e) => {
+          if (e.target.closest('.unpair-btn')) return;
+          soundTap();
+          if (selectedQuestionId === q.id) {
+            selectedQuestionId = null; // deselect if clicked again
+          } else {
+            selectedQuestionId = q.id;
+          }
+          renderCurrentSet();
+        };
+
+        // Inner HTML of Question
+        let questionHtml = `
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex items-start gap-2">
+              <span class="w-5 h-5 rounded-md bg-indigo-100 text-indigo-700 font-bold text-xs flex items-center justify-center shrink-0">
+                ${q.id}
+              </span>
+              <span class="font-semibold text-slate-800 leading-snug">${q.text}</span>
+            </div>
+            ${matchedKey && !isEval ? `
+              <button class="unpair-btn text-slate-400 hover:text-rose-600 font-bold text-xs p-1 rounded hover:bg-slate-200 transition" onclick="unpairQuestion(${q.id})" title="Remove Match">
+                ✕
+              </button>
+            ` : ''}
+          </div>
+        `;
+
+        // Matched badge or evaluated tags
+        if (matchedOption) {
+          questionHtml += `
+            <div class="flex flex-wrap items-center gap-1.5 mt-0.5">
+              <div class="text-[11px] font-semibold text-indigo-800 bg-indigo-100/90 border border-indigo-200 rounded px-2 py-0.5 inline-flex items-center gap-1">
+                <span class="font-bold text-indigo-900">Matched:</span>
+                <span>[${matchedOption.key}] ${matchedOption.text}</span>
+              </div>
+            </div>
+          `;
+        }
+
+        // Show evaluation results tags
+        if (isEval) {
+          const isCorrect = matchedKey === q.ans;
+          const correctOption = currentSet.options.find(o => o.key === q.ans);
+          questionHtml += `
+            <div class="flex flex-wrap items-center justify-between gap-1.5 pt-1 border-t border-slate-200/60 mt-1">
+              ${isCorrect ? `
+                <span class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700">
+                  <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                  Correct (+1 Mark)
+                </span>
+              ` : `
+                <span class="inline-flex items-center gap-1 text-[11px] font-bold text-rose-700">
+                  <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                  ${matchedKey ? 'Incorrect Match' : 'Unattempted'}
+                </span>
+                <span class="bg-emerald-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded shadow-sm">
+                  Correct Answer: [${correctOption.key}] ${correctOption.text}
+                </span>
+              `}
+            </div>
+          `;
+        }
+
+        card.innerHTML = questionHtml;
+        colA.appendChild(card);
+      });
+
+      // Render Column B Options
+      const colB = document.getElementById('columnBContainer');
+      colB.innerHTML = '';
+
+      currentSet.options.forEach((opt) => {
+        // Check if this option is chosen by any question
+        let pairedQuestionNum = null;
+        Object.entries(setMatches).forEach(([qId, oKey]) => {
+          if (oKey === opt.key) pairedQuestionNum = qId;
+        });
+
+        const card = document.createElement('div');
+        let cardClass = "p-2.5 sm:p-3 rounded-xl border text-xs sm:text-sm font-medium transition cursor-pointer flex items-center justify-between gap-2 ";
+        
+        if (pairedQuestionNum) {
+          cardClass += "bg-indigo-50/50 border-indigo-200 text-slate-800 ";
+        } else {
+          cardClass += "bg-white border-slate-200 text-slate-800 hover:border-indigo-300 shadow-sm ";
+        }
+
+        if (selectedQuestionId !== null) {
+          cardClass += "hover:bg-indigo-50/80 hover:ring-2 hover:ring-indigo-400";
+        }
+        card.className = cardClass;
+
+        card.onclick = () => {
+          handleOptionClick(opt.key);
+        };
+
+        card.innerHTML = `
+          <div class="flex items-center gap-2">
+            <span class="w-5 h-5 rounded-md font-bold text-xs flex items-center justify-center shrink-0 ${pairedQuestionNum ? 'bg-indigo-600 text-white' : 'bg-slate-200 text-slate-700'}">
+              ${opt.key}
+            </span>
+            <span class="font-medium text-slate-800 leading-snug">${opt.text}</span>
+          </div>
+          ${pairedQuestionNum ? `
+            <span class="text-[10px] font-bold text-indigo-700 bg-indigo-100 rounded-full px-2 py-0.5 shrink-0">
+              Matched to Q${pairedQuestionNum}
+            </span>
+          ` : ''}
+        `;
+
+        colB.appendChild(card);
+      });
+    }
+
+    /* -------------------------------------------------------------
+       5. TWO-TAP INTERACTION MATCHING LOGIC
+    -------------------------------------------------------------- */
+    function handleOptionClick(optionKey) {
+      if (selectedQuestionId === null) {
+        soundTap();
+        // If no question selected, flash Column A helper
+        const helper = document.getElementById('helperTapPrompt');
+        if (helper) {
+          helper.classList.add('text-amber-400', 'font-bold');
+          setTimeout(() => helper.classList.remove('text-amber-400', 'font-bold'), 800);
+        }
+        return;
+      }
+
+      // If user taps an option while question is active:
+      soundMatch();
+      userAnswers[currentSetIndex][selectedQuestionId] = optionKey;
+      
+      // Auto-advance to next unanswered question in this set if available
+      const currentSet = EXAM_DATA[currentSetIndex];
+      const nextUnanswered = currentSet.questions.find(q => !userAnswers[currentSetIndex][q.id] && q.id !== selectedQuestionId);
+      if (nextUnanswered) {
+        selectedQuestionId = nextUnanswered.id;
+      } else {
+        selectedQuestionId = null;
+      }
+
+      renderCurrentSet();
+      updateGlobalMetrics();
+    }
+
+    function unpairQuestion(questionId) {
+      soundTap();
+      delete userAnswers[currentSetIndex][questionId];
+      if (selectedQuestionId === questionId) {
+        selectedQuestionId = null;
+      }
+      renderCurrentSet();
+      updateGlobalMetrics();
+    }
+
+    function resetCurrentSet() {
+      soundTap();
+      userAnswers[currentSetIndex] = {};
+      setEvaluated[currentSetIndex] = false;
+      selectedQuestionId = null;
+      renderSetPillTabs();
+      renderCurrentSet();
+      updateGlobalMetrics();
+    }
+
+    function checkCurrentSet() {
+      const currentSet = EXAM_DATA[currentSetIndex];
+      const matches = userAnswers[currentSetIndex];
+      let correctInThisSet = 0;
+      
+      currentSet.questions.forEach(q => {
+        if (matches[q.id] === q.ans) {
+          correctInThisSet++;
+        }
+      });
+
+      setEvaluated[currentSetIndex] = true;
+      selectedQuestionId = null;
+
+      if (correctInThisSet >= 4) {
+        soundCorrect();
+      } else {
+        soundIncorrect();
+      }
+
+      renderSetPillTabs();
+      renderCurrentSet();
+      updateGlobalMetrics();
+    }
+
+    function navigateSet(direction) {
+      soundTap();
+      switchSet(currentSetIndex + direction);
+    }
+
+    /* -------------------------------------------------------------
+       6. GLOBAL SCORE CALCULATION & PROGRESS TRACKER
+    -------------------------------------------------------------- */
+    function calculateTotalScore() {
+      let totalCorrect = 0;
+      let totalIncorrect = 0;
+      let totalUnattempted = 0;
+      let totalAttempted = 0;
+
+      EXAM_DATA.forEach((s, sIdx) => {
+        const matches = userAnswers[sIdx] || {};
+        s.questions.forEach((q) => {
+          const userKey = matches[q.id];
+          if (!userKey) {
+            totalUnattempted++;
+          } else {
+            totalAttempted++;
+            if (userKey === q.ans) {
+              totalCorrect++;
+            } else {
+              totalIncorrect++;
+            }
+          }
+        });
+      });
+
+      return {
+        totalCorrect,
+        totalIncorrect,
+        totalUnattempted,
+        totalAttempted,
+        totalQuestions: 70, // 14 sets * 5 = 70 marks
+        percentage: ((totalCorrect / 70) * 100).toFixed(1)
+      };
+    }
+
+    function updateGlobalMetrics() {
+      const stats = calculateTotalScore();
+      document.getElementById('headerScoreCounter').textContent = stats.totalCorrect;
+      
+      let setsDone = 0;
+      setEvaluated.forEach(v => { if (v) setsDone++; });
+      document.getElementById('completedSetsCount').textContent = `${setsDone}/14`;
+
+      const progressPercent = Math.round((stats.totalAttempted / 70) * 100);
+      document.getElementById('globalProgressBar').style.width = `${progressPercent}%`;
+    }
+
+    /* -------------------------------------------------------------
+       7. SUBMIT TEST & SCORECARD MODAL ENGINE
+    -------------------------------------------------------------- */
+    function submitTestAndOpenScorecard() {
+      // Automatically evaluate all remaining sets
+      for (let i = 0; i < EXAM_DATA.length; i++) {
+        setEvaluated[i] = true;
+      }
+      renderSetPillTabs();
+      renderCurrentSet();
+      updateGlobalMetrics();
+
+      const stats = calculateTotalScore();
+      const pct = parseFloat(stats.percentage);
+
+      // Populate Modal Metrics
+      document.getElementById('modalScoreDisplay').textContent = `${stats.totalCorrect} / 70`;
+      document.getElementById('modalCorrectCount').textContent = stats.totalCorrect;
+      document.getElementById('modalIncorrectCount').textContent = stats.totalIncorrect;
+      document.getElementById('modalUnattemptedCount').textContent = stats.totalUnattempted;
+
+      // Conditional Performance UI based on Instructions:
+      // - >= 80%: Glitter + Congratulations.
+      // - 100%: Special interface with Grand Trophy.
+      // - < 80%: "Try again for better marks".
+      const container = document.getElementById('performanceBadgeContainer');
+      if (pct === 100) {
+        soundFanfare();
+        startConfettiAnimation();
+        container.className = "text-center p-4 rounded-xl border border-amber-400 bg-gradient-to-r from-amber-500/20 via-yellow-400/30 to-amber-500/20";
+        container.innerHTML = `
+          <div class="text-3xl mb-1">👑 🏆 🌟</div>
+          <h4 class="text-lg sm:text-xl font-black text-amber-900 uppercase tracking-tight">OUTSTANDING! PERFECT 100% SCORE!</h4>
+          <p class="text-xs font-bold text-amber-800 mt-1">Exceptional Mastery! You solved every single pair with textbook precision!</p>
+        `;
+      } else if (pct >= 80) {
+        soundFanfare();
+        startConfettiAnimation();
+        container.className = "text-center p-3.5 rounded-xl border border-emerald-400 bg-emerald-50/80";
+        container.innerHTML = `
+          <div class="text-2xl mb-1">✨ 🌟 🎊</div>
+          <h4 class="text-base sm:text-lg font-black text-emerald-900 uppercase tracking-tight">CONGRATULATIONS! DISTINCTION GRADE!</h4>
+          <p class="text-xs font-bold text-emerald-800 mt-0.5">Scored ${pct}% Marks (${stats.totalCorrect}/70). Excellent Board Exam Preparation!</p>
+        `;
+      } else {
+        soundIncorrect();
+        container.className = "text-center p-3.5 rounded-xl border border-rose-300 bg-rose-50/80";
+        container.innerHTML = `
+          <div class="text-2xl mb-1">📚 💪</div>
+          <h4 class="text-base sm:text-lg font-black text-rose-900 uppercase tracking-tight">TRY AGAIN FOR BETTER MARKS</h4>
+          <p class="text-xs font-bold text-rose-800 mt-0.5">You scored ${pct}% (${stats.totalCorrect}/70). Review incorrect answers below and retake for 80%+!</p>
+        `;
+      }
+
+      // Render Itemized Breakdown for All 14 Sets
+      renderComprehensiveBreakdown();
+
+      // Show Modal
+      const modal = document.getElementById('scorecardModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function renderComprehensiveBreakdown() {
+      const container = document.getElementById('modalSetsBreakdownContainer');
+      container.innerHTML = '';
+
+      EXAM_DATA.forEach((s, sIdx) => {
+        const setDiv = document.createElement('div');
+        setDiv.className = "p-3";
+        
+        let headerHtml = `
+          <div class="font-extrabold text-xs text-slate-800 mb-2 flex items-center justify-between border-b border-slate-100 pb-1">
+            <span>${s.title}</span>
+            <span class="text-[10px] text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded font-bold">5 Marks</span>
+          </div>
+          <div class="space-y-1.5">
+        `;
+
+        s.questions.forEach((q) => {
+          const userKey = userAnswers[sIdx] ? userAnswers[sIdx][q.id] : null;
+          const isCorrect = userKey === q.ans;
+          const userOption = s.options.find(o => o.key === userKey);
+          const correctOption = s.options.find(o => o.key === q.ans);
+
+          headerHtml += `
+            <div class="text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-1 p-1.5 rounded ${isCorrect ? 'bg-emerald-50/60' : 'bg-rose-50/60'}">
+              <div class="flex items-center gap-1.5">
+                <span class="font-bold ${isCorrect ? 'text-emerald-700' : 'text-rose-700'}">${isCorrect ? '✓' : '✗'} Q${q.id}.</span>
+                <span class="font-medium text-slate-800">${q.text}</span>
+              </div>
+              <div class="text-[11px] flex items-center gap-1.5 shrink-0 pl-4 sm:pl-0">
+                <span class="text-slate-600">Your: <strong class="${isCorrect ? 'text-emerald-800' : 'text-rose-700'}">${userKey ? `[${userKey}] ${userOption.text}` : 'Unattempted'}</strong></span>
+                ${!isCorrect ? `
+                  <span class="bg-emerald-600 text-white text-[10px] font-bold px-1.5 py-0.2 rounded">
+                    Ans: [${correctOption.key}] ${correctOption.text}
+                  </span>
+                ` : ''}
+              </div>
+            </div>
+          `;
+        });
+
+        headerHtml += `</div>`;
+        setDiv.innerHTML = headerHtml;
+        container.appendChild(setDiv);
+      });
+    }
+
+    function closeScorecardModal() {
+      const modal = document.getElementById('scorecardModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function retakeFullTest() {
+      soundTap();
+      for (let i = 0; i < EXAM_DATA.length; i++) {
+        userAnswers[i] = {};
+        setEvaluated[i] = false;
+      }
+      currentSetIndex = 0;
+      selectedQuestionId = null;
+      closeScorecardModal();
+      renderSetPillTabs();
+      renderCurrentSet();
+      updateGlobalMetrics();
+    }
+
+    function shareOnWhatsApp() {
+      const stats = calculateTotalScore();
+      const message = `*Test Result - Bombay Coaching Classes*%0A` +
+        `*Student Score:* ${stats.totalCorrect}/${stats.totalQuestions} (${stats.percentage}%)%0A` +
+        `*Subject:* Social Science Chp 9 Forests and Wildlife Resources%0A` +
+        `Guided by Imran Sir Pothiawala (9819484931)`;
+      window.open(`https://wa.me/?text=${message}`, '_blank');
+    }
+
+    /* -------------------------------------------------------------
+       8. LIGHTWEIGHT NATIVE CONFETTI CANVAS ANIMATION
+    -------------------------------------------------------------- */
+    function startConfettiAnimation() {
+      const canvas = document.getElementById('confettiCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      canvas.width = canvas.parentElement.clientWidth;
+      canvas.height = canvas.parentElement.clientHeight;
+
+      const particles = [];
+      const colors = ['#f59e0b', '#10b981', '#6366f1', '#ec4899', '#3b82f6'];
+
+      for (let i = 0; i < 60; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * (canvas.height / 3),
+          r: Math.random() * 4 + 2,
+          d: Math.random() * 60,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          tilt: Math.floor(Math.random() * 10) - 10,
+          tiltAngleIncremental: (Math.random() * 0.07) + 0.05,
+          tiltAngle: 0
+        });
+      }
+
+      let animationFrames = 0;
+      function drawConfetti() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          ctx.beginPath();
+          ctx.lineWidth = p.r / 2;
+          ctx.strokeStyle = p.color;
+          ctx.moveTo(p.x + p.tilt + (p.r / 4), p.y);
+          ctx.lineTo(p.x + p.tilt, p.y + p.tilt + (p.r / 4));
+          ctx.stroke();
+
+          p.tiltAngle += p.tiltAngleIncremental;
+          p.y += (Math.cos(p.d) + 2 + p.r / 2) / 1.5;
+          p.tilt = Math.sin(p.tiltAngle - (i / 3)) * 12;
+
+          if (p.y > canvas.height) {
+            p.x = Math.random() * canvas.width;
+            p.y = -10;
+          }
+        }
+
+        animationFrames++;
+        if (animationFrames < 140) {
+          requestAnimationFrame(drawConfetti);
+        } else {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+      }
+      requestAnimationFrame(drawConfetti);
+    }
+
+    // Launch immediately on page load (Zero registration gates)
+    window.addEventListener('DOMContentLoaded', () => {
+      initApp();
+    });
+  </script>
+</body>
+</html>
